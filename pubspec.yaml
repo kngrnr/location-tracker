@@ -1,0 +1,28 @@
+name: location_tracker
+description: >
+  Production-grade background location tracking for a Flutter hiring assignment.
+  Uses flutter_background_geolocation for reliable foreground, background, and
+  terminated-state location recording on both iOS and Android.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_background_geolocation: ^5.0.5
+  flutter_bloc: ^9.0.0
+  shared_preferences: ^2.3.2
+  intl: ^0.19.0
+  equatable: ^2.0.8
+
+flutter:
+  uses-material-design: true
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0

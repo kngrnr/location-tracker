@@ -1,0 +1,33 @@
+// android/build.gradle
+buildscript {
+    ext.kotlin_version = '1.9.10'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    // Pin the Google Play Services Location version used by
+    // flutter_background_geolocation. Bump this if you need a newer version.
+    ext {
+        playServicesLocationVersion = "21.3.0"
+        tslocationmanagerVersion = "4.0.+"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects { project.buildDir = "${rootProject.buildDir}/${project.name}" }
+subprojects { project.evaluationDependsOn(':app') }
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
